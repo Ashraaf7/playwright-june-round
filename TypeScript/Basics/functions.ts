@@ -32,6 +32,6 @@ const result = sum(10);
 console.log(result)
 
 //arrow function 
-const subtract = (x: number, y: number) => {
-    x - y;
-}
+const multiply = (x: number, y: number): number => { return x * y; }
+
+console.log(multiply(5, 20));
