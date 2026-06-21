@@ -17,13 +17,13 @@ async function acyns_await_print() {
 acyns_await_print();
 
 
-async function login() {
-    const email = Locator("#email");
-    await page.goto("https://www.facebook.com/");
-    await page.type("#email", "your_email");
-    await page.type("#pass", "your_password");
-    await page.click("button[name='login']");
-}
+// async function login() {
+//     const email = Locator("#email");
+//     await page.goto("https://www.facebook.com/");
+//     await page.type("#email", "your_email");
+//     await page.type("#pass", "your_password");
+//     await page.click("button[name='login']");
+// }
 
 function acyns_print() {
     console.log("1");

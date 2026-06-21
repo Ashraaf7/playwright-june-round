@@ -1,7 +1,7 @@
 export class LoginPage {
-    private usernameLocator: string = "#username";
-    private passwordLocator: string = "#password";
-    private loginButtonLocator: string = "#loginButton";
+    private usernameLocator: string = "ahmed";
+    private passwordLocator: string = "asasasasas";
+    private loginButtonLocator: string = "";
 
 
     private clickLoginButton(): void {
@@ -21,7 +21,7 @@ export class LoginPage {
 
 
 //Test case
-const loginPage = new LoginPage();
-loginPage.login("", "");
+//const loginPage = new LoginPage();
+//loginPage.login("", "");
 
 
