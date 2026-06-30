@@ -46,3 +46,22 @@ test('By Test-id  ', async ({ page }) => {
     await page.getByTestId('password-input').fill('admin');
     await page.getByTestId('login-button').click();
 });
+
+
+
+test('By CSS Selector ', async ({ page }) => {
+    selectors.setTestIdAttribute('automation-id');
+    await page.goto('https://aa-practice-test-automation.vercel.app/index.html');
+    await page.locator('input[automation-id="username-input"]').fill('admin');
+    await page.locator('css=input[automation-id="password-input"]').fill('admin');
+    await page.locator('button[automation-id="login-button"]').click();
+});
+
+
+test('By Xpath ', async ({ page }) => {
+    selectors.setTestIdAttribute('automation-id');
+    await page.goto('https://aa-practice-test-automation.vercel.app/index.html');
+    await page.locator('//input[@automation-id="username-input"]').fill('admin');
+    await page.locator('xpath=//input[@automation-id="password-input"]').fill('admin');
+    await page.locator('//button[@automation-id="login-button"]').click();
+});
