@@ -16,12 +16,14 @@ test('visibility TC', async ({ page }) => {
     await page.goto('https://aa-practice-test-automation.vercel.app/index.html');
     await page.getByRole('textbox', { name: 'user', exact: true }).fill('admin');
     await page.getByRole('textbox', { name: 'PASSWORD' }).fill('admin');
-    await page.getByRole('checkbox', { name: 'Remember me' }).click();
+    await page.getByRole('checkbox', { name: 'Remember me on this device' }).click();
     await page.getByRole('button', { name: 'Sign In' }).click();
     await page.goto('https://aa-practice-test-automation.vercel.app/Pages/form-controls/dropDown.html');
-    await page.selectOption('#experience-dropdown', { value: '2-4' });
+    await page.pause();
+    await page.selectOption('#experience-dropdown', { value: '0-1' });
     await expect(page.locator('#assertion-message')).toBeVisible();
 });
+
 
 test('no-retry assertion', async ({ context, page }) => {
     context.addCookies([{ name: 'deeplinkEnabled', value: 'true', url: 'https://aa-practice-test-automation.vercel.app/Pages/tables/tables.html' }]);
