@@ -1,26 +1,42 @@
 import { test } from 'playwright/test';
-import { LoginPage } from '../pages/login-page';
+import { PageManager } from '../pages/page-manager';
+import loginData from '../../test-data/login-data.json';
+import loginDataTS from '../../test-data/login-data-ts';
+import { CsvReader } from '../utils/cvsReader';
 
-let loginPage: LoginPage; //global variable to hold the instance of LoginPage
+let pageManager: PageManager;
 
 test.beforeEach(async ({ page }) => {
-    loginPage = new LoginPage(page);
-    await loginPage.navigateToLoginPage();
+    pageManager = new PageManager(page);
+    await pageManager.getLoginPage().navigateToLoginPage();
 });
 
-test('valid login tc', async ({ page }) => {
-
+test('TC1', async ({ page }) => {
+    // const timestamp = Date.now();toBot_${timestamp}@gmail.com`;
+    // console.log('Generated email:', email);
+    const csvReader = new CsvReader();
+    await csvReader.loadFile('../../test-data/login-csv.csv');
+    //await pageManager.getLoginPage().login(loginDataTS.TC1.username, loginDataTS.TC1.password);
+    await pageManager.getLoginPage().login(csvReader.getDataByRowAndColumn(0, 'username')!, csvReader.getDataByRowAndColumn(0, 'password')!);
+    await pageManager.getHomePage().verifyThatUserIsLoggedIn();
 });
 
-test('invalid login tc using invalid credentials', async ({ page }) => {
-    await loginPage.login('invalidUser', 'invalidPassword');
-    await loginPage.verifyInvalidCredentialsError();
+test('TC2', async ({ page }) => {
+    await pageManager.getLoginPage().login(loginDataTS.TC2.username, loginDataTS.TC2.password);
+    await pageManager.getHomePage().verifyThatUserIsLoggedIn();
+    await pageManager.getHomePage().logout();
+    await pageManager.getLoginPage().verifyThatUserIsLoggedOut();
 });
 
-test('invalid login tc using empty credentials', async ({ page }) => {
-    await loginPage.login('', '');
-    await loginPage.verifyEmptyUsernameError();
-    await loginPage.verifyEmptyPasswordError();
+test('TC3', async ({ page }) => {
+    await pageManager.getLoginPage().login(loginDataTS.TC3.username, loginDataTS.TC3.password);
+    await pageManager.getLoginPage().verifyInvalidCredentialsError();
+});
+
+test('TC4', async ({ page }) => {
+    await pageManager.getLoginPage().login(loginData.empty.username, loginData.empty.password); //bad practice, you can use empty string directly in the login method
+    await pageManager.getLoginPage().verifyEmptyUsernameError();
+    await pageManager.getLoginPage().verifyEmptyPasswordError();
 });
 
 

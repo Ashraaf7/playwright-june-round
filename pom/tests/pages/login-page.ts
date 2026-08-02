@@ -38,6 +38,7 @@ export class LoginPage {
         await this.rememberMeCheckbox.check();
         await this.loginButton.click();
     }
+
     //Verifications
     async verifyEmptyUsernameError() {
         await expect(this.emptyUsernameErrorLocator).toHaveText(this.emptyUsernameErrorMessage);
@@ -48,5 +49,10 @@ export class LoginPage {
     async verifyInvalidCredentialsError() {
         await expect(this.errorMessage).toHaveText(this.invalidCredentialsErrorMessage);
     }
+
+    async verifyThatUserIsLoggedOut() {
+        await expect(this.loginButton).toBeVisible();
+    }
+
 
 }
