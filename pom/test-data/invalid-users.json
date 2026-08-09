@@ -1,0 +1,10 @@
+[
+    {
+        "username": "invalidUser",
+        "password": "admin"
+    },
+    {
+        "username": "admin",
+        "password": "invalidPassword"
+    }
+]
