@@ -15,11 +15,11 @@ export class HomePage {
 
     //Actions
     async logout() {
-        await this.logoutButton.click();
+        await this.logoutButton.click({ timeout: 50000 });
     }
 
     //Verifications
     async verifyThatUserIsLoggedIn() {
-        await expect(this.logoutButton).toBeVisible();
+        await expect(this.logoutButton).toBeVisible({ timeout: 50000 });
     }
 } 

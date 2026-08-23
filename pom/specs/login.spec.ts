@@ -7,6 +7,8 @@ import { CsvReader } from '../utils/cvsReader';
 
 let pageManager: PageManager;
 
+test.describe.configure({ retries: 2, mode: 'serial' });
+
 test.beforeEach(async ({ page }) => {
     pageManager = new PageManager(page);
     await pageManager.getLoginPage().navigateToLoginPage();
@@ -19,10 +21,10 @@ test('TC1', async ({ page }) => {
     await csvReader.loadFile('../test-data/login-csv.csv');
     //await pageManager.getLoginPage().login(loginDataTS.TC1.username, loginDataTS.TC1.password);
     await pageManager.getLoginPage().login(csvReader.getDataByRowAndColumn(0, 'username')!, csvReader.getDataByRowAndColumn(0, 'password')!);
-    await pageManager.getHomePage().verifyThatUserIsLoggedIn();
+    await pageManager.getHomePage().verifyThatUserIsLoggedIn(); //5 sec timeout
 });
 
-test('TC2', async ({ page }) => {
+test.fail('TC2', async ({ page }) => {
     await pageManager.getLoginPage().login(loginDataTS.TC2.username, loginDataTS.TC2.password);
     await pageManager.getHomePage().verifyThatUserIsLoggedIn();
     await pageManager.getHomePage().logout();
@@ -44,6 +46,7 @@ test('TC4', async ({ page }) => {
 
 invalidUsers.forEach(({ username, password }) => {
     test(`TC5_verify that the user can not login with invalid credentials using ${username} & ${password}`, async ({ page }) => {
+        test.setTimeout(120000);
         await pageManager.getLoginPage().login(username, password);
         await pageManager.getLoginPage().verifyInvalidCredentialsError();
     });

@@ -29,7 +29,7 @@ export class LoginPage {
 
     //Actions
     async navigateToLoginPage() {
-        await this.page.goto(this.url);
+        await this.page.goto(this.url, { timeout: 30000 });
     }
 
     async login(username: string, password: string) {

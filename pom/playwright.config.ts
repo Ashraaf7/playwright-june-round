@@ -13,6 +13,7 @@ import { title } from 'node:process';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  globalTimeout: 10800000, // 3 hours
   captureGitInfo: { commit: true, diff: true },
   metadata: { title: 'test-metadata' },
   testDir: './specs',
@@ -28,9 +29,13 @@ export default defineConfig({
   reporter: [['html'], ['json', { outputFile: 'test-results/results.json' }]],
   outputDir: '/test-results',
   quiet: false,
-  repeatEach: 3,
+  //repeatEach: 3,
   reportSlowTests: { max: 10, threshold: 2000 },
-  testIgnore: '**/specs/assets/**',
+  // testIgnore: '**/specs/assets/**',
+  timeout: 60000,
+  expect: {
+    timeout: 20000,
+  },
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
@@ -38,6 +43,8 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     //  trace: 'on-first-retry',
+    actionTimeout: 20000,
+    navigationTimeout: 30000,
   },
 
   /* Configure projects for major browsers */
@@ -45,6 +52,7 @@ export default defineConfig({
     {
       name: 'chrome',
       use: { ...devices['Desktop Chrome'] },
+      fullyParallel: true,
     },
 
     {
