@@ -29,7 +29,7 @@ export class LoginPage {
 
     //Actions
     async navigateToLoginPage() {
-        await this.page.goto(this.url, { timeout: 30000 });
+        await this.page.goto('/', { timeout: 30000 }); //'https://aa-practice-test-automation.vercel.app/index.html/actions'
     }
 
     async login(username: string, password: string) {

@@ -31,7 +31,7 @@ export default defineConfig({
   quiet: false,
   //repeatEach: 3,
   reportSlowTests: { max: 10, threshold: 2000 },
-  // testIgnore: '**/specs/assets/**',
+  testIgnore: '**/specs/ignoredTests/**',
   timeout: 60000,
   expect: {
     timeout: 20000,
@@ -43,36 +43,92 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     //  trace: 'on-first-retry',
-    actionTimeout: 20000,
-    navigationTimeout: 30000,
+    actionTimeout: 5000,
+    navigationTimeout: 10000,
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'setup',
+      use: {
+        ...devices['Desktop Edge'], channel: 'msedge',
+        baseURL: 'https://aa-practice-test-automation.vercel.app/index.html',
+      },
+      testMatch: ['**/specs/utils/setup.spec.ts'],
+      teardown: 'teardown',
+
+    }, {
+      name: 'teardown',
+      use: {
+        ...devices['Desktop Edge'], channel: 'msedge',
+        baseURL: 'https://aa-practice-test-automation.vercel.app/index.html',
+      },
+      testMatch: ['**/specs/utils/teardown.spec.ts'],
+
+    },
+    {
+      name: 'sanity',
+      use: {
+        ...devices['Desktop Edge'], channel: 'msedge',
+        baseURL: 'https://aa-practice-test-automation.vercel.app/index.html',
+      },
+      testMatch: ['**/specs/login.spec.ts', '**/specs/logout.spec.ts'],
+
+    },
+    {
+      name: 'test-env',
+      use: {
+        ...devices['Desktop Edge'], channel: 'msedge',
+        baseURL: 'https://aa-practice-test-automation.vercel.app/index.html',
+      },
+
+    },
+    {
+      name: 'preprod-env',
+      use: {
+        ...devices['Desktop Edge'], channel: 'msedge',
+        baseURL: 'https://preprod-aa-practice-test-automation.vercel.app/index.html',
+      },
+
+    },
+    {
       name: 'chrome',
-      use: { ...devices['Desktop Chrome'] },
-      fullyParallel: true,
+      use: {
+        ...devices['Desktop Chrome'],
+        baseURL: 'https://aa-practice-test-automation.vercel.app/index.html',
+      },
+
+      dependencies: ['setup'],
+      //  fullyParallel: true,
     },
 
     {
       name: 'firefox',
       use: { ...devices['Desktop Firefox'] },
+      dependencies: ['setup'],
+
     },
 
     {
-      name: 'webkit',
+      name: 'safari',
       use: { ...devices['Desktop Safari'] },
+      dependencies: ['setup'],
+
     },
     {
       name: 'edge',
       use: { ...devices['Desktop Edge'], channel: 'msedge' },
+      dependencies: ['setup'],
+
     }
-    // ,
-    // {
-    //   name: 'iphonne 13 Pro Max',
-    //   use: { ...devices['iPhone 13 Pro Max'] },
-    // }
+    ,
+    {
+      name: 'iPhone 13 Pro Max',
+      use: { ...devices['iPhone 13 Pro Max'] },
+      dependencies: ['setup'],
+
+    }
 
     /* Test against mobile viewports. */
     // {
