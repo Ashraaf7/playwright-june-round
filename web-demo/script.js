@@ -7,7 +7,12 @@ function login() {
     if (username === "" || password === "") {
         message.innerText = "Please fill all fields.";
         message.style.color = "red";
-    } else {
+    } 
+    else if (password !== "admin"){
+        message.innerText = "Incorrect password.";
+        message.style.color = "red";
+    }
+        else {
         message.innerText = "Login Successful!";
         message.style.color = "green";
     }
