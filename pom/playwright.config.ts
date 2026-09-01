@@ -45,6 +45,47 @@ export default defineConfig({
     //  trace: 'on-first-retry',
     actionTimeout: 5000,
     navigationTimeout: 10000,
+    // Emulates `'prefers-colors-scheme'` media feature.
+    colorScheme: 'dark',
+
+    // Context geolocation.
+    geolocation: { longitude: 12.492507, latitude: 41.889938 },
+    // Grants specified permissions to the browser context.
+    permissions: ['geolocation'],
+
+    // Emulates the user locale.
+    locale: 'ar-EG',
+
+
+    // Emulates the user timezone.
+    timezoneId: 'Europe/Paris',
+
+    // Network conditions can be emulated here, such as offline mode, download/upload speeds, etc.
+    // Whether to automatically download all the attachments.
+    acceptDownloads: true,
+
+    // An object containing additional HTTP headers to be sent with every request.
+    extraHTTPHeaders: {
+      'captcha-required': 'false',
+    },
+
+    // Credentials for HTTP authentication.
+    httpCredentials: {
+      username: 'admin',
+      password: 'admin',
+    },
+
+    // Whether to ignore HTTPS errors during navigation.
+    ignoreHTTPSErrors: true,
+
+    // Whether to emulate network being offline.
+    //offline: true,
+
+    // Proxy settings used for all pages in the test.
+    // proxy: {
+    //   server: 'http://myproxy.com:3128',
+    //   bypass: 'localhost',
+    // },
   },
 
   /* Configure projects for major browsers */
@@ -97,9 +138,11 @@ export default defineConfig({
       use: {
         ...devices['Desktop Chrome'],
         baseURL: 'https://aa-practice-test-automation.vercel.app/index.html',
+        // Viewport used for all pages in the context.
+        //  viewport: { width: 800, height: 420 },
       },
 
-      dependencies: ['setup'],
+      // dependencies: ['setup'],
       //  fullyParallel: true,
     },
 
@@ -112,7 +155,10 @@ export default defineConfig({
 
     {
       name: 'safari',
-      use: { ...devices['Desktop Safari'] },
+      use: {
+        ...devices['Desktop Safari']
+
+      },
       dependencies: ['setup'],
 
     },

@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "invalidLogin" : "npx playwright test --grep @invalid --project=chrome"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
