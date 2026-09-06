@@ -1,20 +1,12 @@
-import { test, expect } from '@playwright/test';
-import { PageManager } from '../pages/pageManager';
+import { test } from '../utils/fixtures/myFixure';
 
-let pManger: PageManager;
 
-test('user can log in successfully', async ({ page }) => {
-  pManger = new PageManager(page);
-  await pManger.getLoginPage().goToLoginPage();
-  await pManger.getLoginPage().login('standard_user', 'secret_sauce');
-  await pManger.getProductsPage().validateThatTheUserIsLoggedIn();
+test('user can log in successfully', async ({ loginPage, productsPage }) => {
+  await productsPage.validateThatTheUserIsLoggedIn();
 });
 
 
-test('user can log out successfully', async ({ page }) => {
-  pManger = new PageManager(page);
-  await pManger.getLoginPage().goToLoginPage();
-  await pManger.getLoginPage().login('standard_user', 'secret_sauce');
-  await pManger.getProductsPage().logout();
-  await pManger.getLoginPage().validateThatTheUserIsLoggedOut();
+test('user can log out successfully', async ({ loginPage, productsPage }) => {
+  await productsPage.logout(); ``
+  await loginPage.validateThatTheUserIsLoggedOut();
 });
