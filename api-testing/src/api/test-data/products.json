@@ -1,0 +1,30 @@
+{
+    "toBeCreated": {
+        "name": "Samsung galaxy S26 Ultra",
+        "data": {
+            "year": 2026,
+            "price": 2000,
+            "CPU model": "Galaxy",
+            "Hard disk size": "1 TB"
+        }
+    },
+    "query": {
+        "id": 13
+    },
+    "id": 1,
+    "toBeUpdated": {
+        "id": "ff808181a067127101a09bf2ad3f0ba3",
+        "data":{
+        "name": "Samsung galaxy S26 Ultra Updated",
+        "data": {
+            "year": 2026,
+            "price": 2100,
+            "CPU model": "Galaxy Updated",
+            "Hard disk size": "1 TB"
+        }
+    }
+},
+"toBeDeleted": {
+    "id": "ff808181a067127101a09bf2ad3f0ba3"
+}
+}
