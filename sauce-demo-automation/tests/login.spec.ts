@@ -7,6 +7,6 @@ test('user can log in successfully', async ({ loginPage, productsPage }) => {
 
 
 test('user can log out successfully', async ({ loginPage, productsPage }) => {
-  await productsPage.logout(); ``
+  await productsPage.logout();
   await loginPage.validateThatTheUserIsLoggedOut();
 });
