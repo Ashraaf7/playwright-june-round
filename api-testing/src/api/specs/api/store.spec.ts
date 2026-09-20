@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
-import storeEndpoints from "../enpoints/store-endpoints";
-import storeTestData from "../test-data/store.json";
+import storeEndpoints from "../../endpoints/store-endpoints";
+import storeTestData from "../../test-data/store.json";
 
 //Test Cases
 test("Register a new client", async ({ request }) => {

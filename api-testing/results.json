@@ -1,0 +1,331 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "D:\\Test Automation Projects\\Test Automation Rounds\\playwright-june-round\\api-testing\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--project=mocks"
+    ],
+    "configFile": "D:\\Test Automation Projects\\Test Automation Rounds\\playwright-june-round\\api-testing\\playwright.config.ts",
+    "rootDir": "D:/Test Automation Projects/Test Automation Rounds/playwright-june-round/api-testing/src/api/specs",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 5
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "D:/Test Automation Projects/Test Automation Rounds/playwright-june-round/api-testing/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "mocks",
+        "name": "mocks",
+        "testDir": "D:/Test Automation Projects/Test Automation Rounds/playwright-june-round/api-testing/src/api/specs",
+        "testIgnore": [],
+        "testMatch": [
+          "**/mocks/*.spec.ts"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "D:/Test Automation Projects/Test Automation Rounds/playwright-june-round/api-testing/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 5
+        },
+        "id": "api",
+        "name": "api",
+        "testDir": "D:/Test Automation Projects/Test Automation Rounds/playwright-june-round/api-testing/src/api/specs",
+        "testIgnore": [],
+        "testMatch": [
+          "**/api/*.spec.ts"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        {
+          "title": "API Testing Results",
+          "open": "on-failure"
+        }
+      ],
+      [
+        "blob",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "results.json"
+        }
+      ],
+      [
+        "junit",
+        {
+          "outputFile": "results.xml"
+        }
+      ],
+      [
+        "perfetto",
+        {
+          "outputFile": "perfetto.json.gz"
+        }
+      ],
+      [
+        "D:\\Test Automation Projects\\Test Automation Rounds\\playwright-june-round\\api-testing\\node_modules\\allure-playwright\\dist\\cjs\\index.js",
+        null
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 6,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "mocks\\mocking.spec.ts",
+      "file": "mocks/mocking.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Mocking Request Body TC",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mocks",
+              "projectName": "mocks",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3661,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T19:20:18.722Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d1367042453f77ca6b86-2ad82e57157dbeaf517b",
+          "file": "mocks/mocking.spec.ts",
+          "line": 6,
+          "column": 5
+        },
+        {
+          "title": "Mocking Request Headers TC",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mocks",
+              "projectName": "mocks",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 3962,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T19:20:18.723Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d1367042453f77ca6b86-a0f482f9344e066f02cd",
+          "file": "mocks/mocking.spec.ts",
+          "line": 20,
+          "column": 5
+        },
+        {
+          "title": "Mocking Request Headers TC2",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "skip",
+                  "location": {
+                    "file": "D:\\Test Automation Projects\\Test Automation Rounds\\playwright-june-round\\api-testing\\src\\api\\specs\\mocks\\mocking.spec.ts",
+                    "line": 36,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "skipped",
+              "projectId": "mocks",
+              "projectName": "mocks",
+              "results": [
+                {
+                  "workerIndex": -1,
+                  "parallelIndex": -1,
+                  "status": "skipped",
+                  "duration": 0,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T19:20:18.187Z",
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "D:\\Test Automation Projects\\Test Automation Rounds\\playwright-june-round\\api-testing\\src\\api\\specs\\mocks\\mocking.spec.ts",
+                        "line": 36,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "skipped"
+            }
+          ],
+          "id": "d1367042453f77ca6b86-59145733eef12cd0e3f8",
+          "file": "mocks/mocking.spec.ts",
+          "line": 36,
+          "column": 6
+        },
+        {
+          "title": "Mocking Response TC",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [
+                {
+                  "type": "fail",
+                  "location": {
+                    "file": "D:\\Test Automation Projects\\Test Automation Rounds\\playwright-june-round\\api-testing\\src\\api\\specs\\mocks\\mocking.spec.ts",
+                    "line": 61,
+                    "column": 6
+                  }
+                }
+              ],
+              "expectedStatus": "failed",
+              "projectId": "mocks",
+              "projectName": "mocks",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 2821,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T19:20:18.746Z",
+                  "annotations": [
+                    {
+                      "type": "fail",
+                      "location": {
+                        "file": "D:\\Test Automation Projects\\Test Automation Rounds\\playwright-june-round\\api-testing\\src\\api\\specs\\mocks\\mocking.spec.ts",
+                        "line": 61,
+                        "column": 6
+                      }
+                    }
+                  ],
+                  "attachments": []
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "d1367042453f77ca6b86-6002536580fcc76767c5",
+          "file": "mocks/mocking.spec.ts",
+          "line": 61,
+          "column": 6
+        },
+        {
+          "title": "Aborting Request TC",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "mocks",
+              "projectName": "mocks",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 4,
+                  "status": "passed",
+                  "duration": 2419,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-09-20T19:20:18.737Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "d1367042453f77ca6b86-c0b3455f6d6bda7f580a",
+          "file": "mocks/mocking.spec.ts",
+          "line": 73,
+          "column": 5
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-09-20T19:20:18.163Z",
+    "duration": 6872.218000000001,
+    "expected": 3,
+    "skipped": 1,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,15 @@
+{
+    "Items": [
+      {
+            "cat": "phone",
+            "desc": "Iphone 18 pro max Test description",
+            "id": 4,
+            "img": "",
+            "price": 800.0,
+            "title": "Iphone 18 pro max"
+        }  
+    ],
+    "LastEvaluatedKey": {
+        "id": "1"
+    }
+}

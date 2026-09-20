@@ -1,0 +1,30 @@
+<testsuites id="" name="" tests="5" failures="1" skipped="1" errors="0" time="6.872218000000001">
+<testsuite name="mocks\mocking.spec.ts" timestamp="2026-09-20T19:20:18.184Z" hostname="mocks" tests="5" failures="1" skipped="1" time="12.863" errors="0">
+<testcase name="Mocking Request Body TC" classname="mocks\mocking.spec.ts" time="3.661">
+</testcase>
+<testcase name="Mocking Request Headers TC" classname="mocks\mocking.spec.ts" time="3.962">
+</testcase>
+<testcase name="Mocking Request Headers TC2" classname="mocks\mocking.spec.ts">
+<properties>
+<property name="skip" value="">
+</property>
+</properties>
+<skipped>
+</skipped>
+</testcase>
+<testcase name="Mocking Response TC" classname="mocks\mocking.spec.ts" time="2.821">
+<properties>
+<property name="fail" value="">
+</property>
+</properties>
+<failure message="mocking.spec.ts:61:6 Mocking Response TC" type="FAILURE">
+<![CDATA[  [mocks] › mocks\mocking.spec.ts:61:6 › Mocking Response TC ───────────────────────────────────────
+
+    Expected to fail, but passed.
+]]>
+</failure>
+</testcase>
+<testcase name="Aborting Request TC" classname="mocks\mocking.spec.ts" time="2.419">
+</testcase>
+</testsuite>
+</testsuites>

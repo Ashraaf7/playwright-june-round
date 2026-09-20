@@ -1,11 +1,13 @@
 import { test, expect } from "@playwright/test";
-import productsEndpoints from "../enpoints/products-endpoints";
-import productTestData from "../test-data/products.json";
+import productsEndpoints from "../../endpoints/products-endpoints";
+import productTestData from "../../test-data/products.json";
 
 /** Test Cases */
 test('Create a new product', async ({ request }) => {
     const response = await productsEndpoints.createProduct(request, productTestData.toBeCreated);
-    console.log(await response.json());
+    const resposeBody = await response.json();
+    console.log(resposeBody);
+    expect(resposeBody.name).toBe(productTestData.toBeCreated.name);
 });
 /********************************************************* */
 test('Get all products', async ({ request }) => {
@@ -14,8 +16,10 @@ test('Get all products', async ({ request }) => {
 });
 /********************************************************* */
 test('Get product by query', async ({ request }) => {
-    const response = await productsEndpoints.getProductByQuery(request, productTestData.query);
-    console.log(await response.json());
+    const response = await productsEndpoints.getProductByQuery(request, productTestData.query.data);
+    const resposeBody = await response.json();
+    console.log(resposeBody);
+    expect(resposeBody[0].name).toBe(productTestData.query.expectedName);
 });
 /********************************************************* */
 test('Get product by path', async ({ request }) => {

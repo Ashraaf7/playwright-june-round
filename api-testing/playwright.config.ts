@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test';
+import { title } from 'node:process';
 
 /**
  * Read environment variables from file.
@@ -22,7 +23,12 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [['html', { title: 'API Testing Results', open: 'on-failure' }]
+    , ['blob'],
+  ['json', { outputFile: 'results.json' }],
+  ['junit', { outputFile: 'results.xml' }],
+  ['perfetto', { outputFile: 'perfetto.json.gz' }],
+  ["allure-playwright"]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
@@ -35,23 +41,17 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'chrome',
+      name: 'mocks',
       use: { ...devices['Desktop Chrome'] },
+      testMatch: '**/mocks/*.spec.ts',
     },
 
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: 'api',
+      testMatch: '**/api/*.spec.ts',
     },
 
-    {
-      name: 'safari',
-      use: { ...devices['Desktop Safari'] },
-    },
-    {
-      name: 'edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' },
-    },
+
 
     /* Test against mobile viewports. */
     // {
