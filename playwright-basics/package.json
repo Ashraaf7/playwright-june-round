@@ -9,8 +9,17 @@
   "license": "ISC",
   "type": "commonjs",
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.63.0",
     "@types/node": "^26.0.1",
-    "typescript": "^6.0.3"
+    "accessibility-reporter": "file:C:/Users/LOQ/Desktop/accessibility-reporter",
+    "axe-core": "^4.13.0",
+    "eslint": "^10.11.0",
+    "eslint-plugin-playwright": "^2.12.0",
+    "globals": "^17.12.0",
+    "jiti": "^2.7.0",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.70.1"
   }
 }

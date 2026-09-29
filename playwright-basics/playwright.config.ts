@@ -23,8 +23,11 @@ export default defineConfig({
   workers: process.env.CI ? 3 : 1,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
+  // Single template for all assertions
+  snapshotPathTemplate: './__snapshots__/{testFilePath}/{projectName}-{arg}{ext}',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'https://playwright.dev/',
 
@@ -37,21 +40,51 @@ export default defineConfig({
   projects: [
     {
       name: 'chrome',
-      use: { ...devices['Desktop Chrome'] },
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: null,
+        deviceScaleFactor: undefined,
+        launchOptions: {
+          args: ['--start-maximized'],
+
+
+        }
+        ,
+
+      },
     },
 
     {
-      name: 'firefox',
-      use: { ...devices['Desktop Firefox'] },
+      name: 'en',
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: null,
+        deviceScaleFactor: undefined,
+        launchOptions: {
+          args: ['--start-maximized'],
+        }
+        ,
+        locale: 'en-US',
+      },
+      metadata: {
+        language: 'en'
+      }
     },
-
     {
-      name: 'webkit',
-      use: { ...devices['Desktop Safari'] },
-    },
-    {
-      name: 'edge',
-      use: { ...devices['Desktop Edge'], channel: 'msedge' },
+      name: 'ar',
+      use: {
+        ...devices['Desktop Chrome'],
+        viewport: null,
+        deviceScaleFactor: undefined,
+        launchOptions: {
+          args: ['--start-maximized'],
+        }
+        ,
+        locale: 'ar-EG',
+      },
+      metadata: {
+        language: 'ar'
+      }
     },
     /* Test against mobile viewports. */
     // {
